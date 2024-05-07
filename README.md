@@ -1,25 +1,39 @@
-# Actor - Screenshot URL
+# Screenshot URL Actor
 
-Actor serving as an example of Input Schema. Takes URL of website and screenshot configuration parameters as input and outputs a screenshot of the website into Key-Value store.
+This Actor serves as a practical demonstration of using an Input Schema. It takes a URL and screenshot configuration parameters as input and outputs a screenshot of the website into the Key-Value store.
 
-## INPUT
+## How It Works
 
-Input of this actor should be JSON containing filter specification. Allowed filters are:
+### Input
 
-| Field | Type | Description | Allowed values |
-| ----- | ---- | ----------- | -------------- |
-| url | String | Search term | Any string value |
-| waitUntil | String | When should the screenshot be taken | One of:<br>"load"<br>"domcontentloaded"<br>"networkidle2"<br>"networkidle0" |
-| delay | Number | Delay before the screenshot is taken after the waitUntil finishes | Minimum: 0, Maximum: 3600000 |
-| viewportWidth | Number | How wide should the website and screenshot be | Minimum: 100, Maximum: 3840 |
-| scrollToBottom | Boolean | Should the browser scroll to the bottom of the page before taking a screenshot | true/false |
-| delayAfterScrolling | Number | Specify the delay (in milliseconds) after scrolling to the bottom of the page before taking the screenshot. This option is only used if 'Wait for Network Idle After Scrolling' is not enabled. | Minimum: 0, Maximum: 3600000 |
-| waitUntilNetworkIdleAfterScroll | Boolean | Choose whether to wait for the network to become idle after scrolling to the bottom of the page before taking a screenshot. If enabled, this option overrides the 'Delay After Scrolling' option. | true/false |
-| waitUntilNetworkIdleAfterScrollTimeout | Number | Specify the maximum wait time (in milliseconds) for the network to become idle after scrolling to the bottom of the page before taking the screenshot, this option is used to make sure handler doesn't get stuck for some pages. This option is only used if 'Wait for Network Idle After Scrolling' is enabled. | Minimum: 1000, Maximum: 3600000 |
+The input should be a JSON object containing specifications for capturing the screenshot. Below are the parameters you can configure:
 
-For more information about `waitUntil` parameter please take a look at documentation of [Puppeteers page.goto function](https://github.com/GoogleChrome/puppeteer/blob/v1.10.0/docs/api.md#pagegotourl-options).
+| Field                             | Type    | Description                                                           | Allowed Values                                                   |
+| --------------------------------- | ------- | --------------------------------------------------------------------- | ---------------------------------------------------------------- |
+| `url`                             | String  | URL of the website to capture                                         | Any valid URL string                                             |
+| `waitUntil`                       | String  | Specifies when to take the screenshot based on page load state        | "load", "domcontentloaded", "networkidle2", "networkidle0"       |
+| `delay`                           | Number  | Delay in milliseconds after `waitUntil` event before taking screenshot| 0 to 3,600,000                                                   |
+| `viewportWidth`                   | Number  | Width of the viewport for the screenshot                              | 100 to 3840                                                      |
+| `scrollToBottom`                  | Boolean | Whether to scroll to the bottom of the page before taking a screenshot| true, false                                                      |
+| `delayAfterScrolling`             | Number  | Delay after scrolling to the bottom before taking the screenshot      | 0 to 3,600,000                                                   |
+| `waitUntilNetworkIdleAfterScroll` | Boolean | Wait for network to become idle after scrolling before screenshot     | true, false                                                      |
+| `waitUntilNetworkIdleAfterScrollTimeout` | Number | Max wait time for network idle after scrolling              | 1,000 to 3,600,000                                               |
 
-## OUTPUT
+### Output
 
-Once the actor finishes, it will output a screenshot of the website into a file called OUTPUT
-stored in Key-Value store associated with the run.
+The actor outputs a screenshot of the specified website into a file named `OUTPUT` in the Key-Value store associated with the actor's run.
+
+## Connect With Us
+
+- **YouTube**: [Visit our channel](https://www.youtube.com/@CodeMaster-421)
+- **Instagram**: [Follow us on Instagram](https://www.instagram.com/quicklifesolutionsofficial/)
+- **AI Newsletter**: [Subscribe to our newsletter](https://sendfox.com/quicklifesolutions)
+- **Free Consultation**: [Book a free consultation call](https://tidycal.com/quicklifesolutions/free-consultation)
+- **Explore More Tools**: [Check out our Apify actors](https://apify.com/dainty_screw)
+
+### Support
+
+- **Discord**: [Raise a Support ticket here](https://discord.gg/2WGj2PDmHb)
+- **Email**: [Contact us](mailto:codemasterdevops@gmail.com)
+
+This Actor is an essential tool for anyone needing quick and accurate web screenshots. Perfect for testing, archiving, or content verification purposes.
